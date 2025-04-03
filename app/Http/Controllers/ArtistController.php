@@ -17,6 +17,8 @@ class ArtistController extends Controller
     {
         $artists = Artist::all();
 
+        //dd($artists);
+
         return view('artist.index', [
             'artists' => $artists,
         ]);
@@ -28,4 +30,17 @@ class ArtistController extends Controller
     {
         //
     }
+
+    public function show(string $id)
+        {
+            //Récupérer les données depuis le modèle (database)
+            $artist = Artist::find($id);
+            
+            //Envoyer les données à la vue (template)
+            return view('artist.show', [
+                'artists'=> $artist,
+            ]);
+        }
+
 }
+
