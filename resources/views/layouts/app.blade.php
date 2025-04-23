@@ -9,7 +9,7 @@
     <aside>
         @section('sidebar')
             This is the master sidebar
-        @
+        @endsection('sidebar')
     </aside>
     <main>
         @yield('content')

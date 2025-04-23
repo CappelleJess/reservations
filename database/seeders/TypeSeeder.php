@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\Type;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,14 +13,23 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('types')->truncate();
+        Type::truncate();
 
         $data = [
-            ['type', 'comédien'],
-            ['type', 'scénographe'],
-            ['type', 'auteur'],
+            ['types'=>'comédien'],
+            ['types'=>'scénographe'],
+            ['types'=>'auteur'],
         ];
 
         DB::table('types')->insert($data);
     }
 }
+// DB::table('types')->truncate();
+
+//         $data = [
+//             ['type', 'comédien'],
+//             ['type', 'scénographe'],
+//             ['type', 'auteur'],
+//         ];
+
+//         DB::table('types')->insert($data);

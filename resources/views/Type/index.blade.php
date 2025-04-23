@@ -1,0 +1,12 @@
+@extends('layouts.app')
+
+@section ('title', 'Liste des types')
+
+@section('content')
+
+
+@foreach($types as $type)
+<p><a href="{{ route('type.show', [$type->id]) }}">{{ $type->$type }}</p>
+@endforeach
+
+@endsection
