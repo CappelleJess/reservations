@@ -14,8 +14,8 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
-        return view('type.index', [
-            'types'=> $types,
+        return view('type.index',[
+            'types' => $types,
         ]);
     }
 
@@ -42,9 +42,9 @@ class TypeController extends Controller
     {
         $type = Type::find($id);
 
-        return view('type.show', [
-            'type'=> $type,
-        ])
+        return view('type.show',[
+            'type' => $type,
+        ]);
     }
 
     /**

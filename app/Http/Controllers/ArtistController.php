@@ -28,7 +28,7 @@
       */
      public function create()
      {
-         //
+        return view('artist.create');
      }
  
      /**
@@ -36,7 +36,19 @@
       */
      public function store(Request $request)
      {
-         //
+        $validated = $request ->validate([ 
+            'firstname'=> 'required|max:60',
+            'lastname'=> 'required|max:60',
+        ]);
+
+        $artist = new Artist();
+
+        $artist->firstname = $validated['firstname'];
+        $artist->lastname = $validated['lastname'];
+
+        $artist->save();
+
+        return redirect()->route('artist.show', [$artist->id]);
      }
  
      /**
@@ -92,6 +104,13 @@
       */
       public function destroy(string $id)
       {
-          //
-      }
+        $artist = Artist::find($id);
+
+        if($artist) {
+            $artist->delete();
+        }
+
+        return redirect()->route('artist.index');
+    }
+
   }
